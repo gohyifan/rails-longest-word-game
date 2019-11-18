@@ -1,0 +1,12 @@
+<ul style="margin-bottom: 40px;margin-top: 40px;">
+  <% @letters.each do |letter| %>
+    <li style="display: inline; background-color: lightblue; padding: 20px; border: 1px solid;"><%= letter %></li>
+  <% end %>
+</ul>
+<p>What is the longest word you can find?</p>
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input id="letters" name="letters" type="hidden" value="<%= @letters %>" />
+  <input type="text" name="word" placeholder="Your word!">
+  <input type="submit">
+</form>
